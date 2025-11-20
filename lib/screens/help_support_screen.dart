@@ -110,19 +110,49 @@ class HelpSupportScreen extends StatelessWidget {
                   _buildFAQCard(
                     question: 'Bagaimana cara mendaftar akun?',
                     answer:
-                        'Klik tombol Daftar di halaman login, lalu isi formulir dengan data yang valid. Verifikasi email Anda untuk mengaktifkan akun.',
+                        'Untuk mendaftar, klik tombol "Daftar" di halaman login. Isi formulir dengan data yang valid (nama lengkap, email, password). Setelah submit, cek email Anda untuk link verifikasi. Klik link tersebut untuk mengaktifkan akun Anda.',
                   ),
 
                   _buildFAQCard(
                     question: 'Bagaimana cara mengerjakan tryout?',
                     answer:
-                        'Pilih tryout yang tersedia, klik Mulai Tryout, jawab semua soal, lalu klik Submit untuk melihat hasil.',
+                        '1. Login ke aplikasi\n2. Pilih kategori tryout yang ingin dikerjakan\n3. Klik "Mulai Tryout"\n4. Baca instruksi dengan teliti\n5. Jawab semua soal sesuai waktu\n6. Klik "Submit" untuk menyelesaikan\n7. Lihat hasil dan pembahasan',
                   ),
 
                   _buildFAQCard(
-                    question: 'Apakah bisa mengerjakan tryout secara offline?',
+                    question: 'Apakah ada batas waktu mengerjakan?',
                     answer:
-                        'Ya, Anda bisa download soal terlebih dahulu dan mengerjakan secara offline. Hasil akan tersinkronisasi saat online.',
+                        'Ya, setiap tryout memiliki batas waktu sesuai standar ujian. Timer akan berjalan otomatis saat Anda mulai. Jika waktu habis, jawaban akan otomatis tersubmit.',
+                  ),
+
+                  _buildFAQCard(
+                    question: 'Bagaimana cara melihat hasil tryout?',
+                    answer:
+                        'Setelah submit, hasil langsung ditampilkan. Anda bisa melihat:\n- Total skor\n- Jumlah benar/salah\n- Pembahasan tiap soal\n- Analisis performa\n- Ranking dibanding peserta lain',
+                  ),
+
+                  _buildFAQCard(
+                    question: 'Apakah bisa mengerjakan ulang tryout yang sama?',
+                    answer:
+                        'Untuk tryout gratis, Anda bisa mengulang kapan saja. Untuk tryout berbayar, tergantung paket yang dibeli - ada yang sekali akses, ada yang unlimited hingga tanggal tertentu.',
+                  ),
+
+                  _buildFAQCard(
+                    question: 'Bagaimana cara reset password?',
+                    answer:
+                        'Di halaman login, klik "Lupa Password". Masukkan email terdaftar, dan link reset akan dikirim ke email Anda. Klik link tersebut dan buat password baru.',
+                  ),
+
+                  _buildFAQCard(
+                    question: 'Apakah data tryout saya aman?',
+                    answer:
+                        'Ya, semua data Anda terenkripsi dan disimpan dengan aman. Kami tidak membagikan data pribadi Anda kepada pihak ketiga tanpa persetujuan.',
+                  ),
+
+                  _buildFAQCard(
+                    question: 'Bagaimana cara upgrade ke paket premium?',
+                    answer:
+                        'Masuk ke menu "Paket Tryout", pilih paket premium yang diinginkan, lakukan pembayaran melalui metode yang tersedia, dan akses premium langsung aktif setelah konfirmasi.',
                   ),
 
                   const SizedBox(height: AppSpacing.xl),

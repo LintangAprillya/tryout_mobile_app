@@ -93,7 +93,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
                     ),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Theme.of(context).cardColor,
                         borderRadius: BorderRadius.circular(AppRadius.xl),
                         boxShadow: [
                           BoxShadow(
@@ -107,14 +107,14 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
                         controller: _searchController,
                         decoration: InputDecoration(
                           hintText: 'Search',
-                          prefixIcon: const Icon(Icons.search,
-                              color: AppColors.textHint),
+                          prefixIcon: Icon(Icons.search,
+                              color: Theme.of(context).hintColor),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(AppRadius.xl),
                             borderSide: BorderSide.none,
                           ),
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: Theme.of(context).cardColor,
                           contentPadding: const EdgeInsets.symmetric(
                             horizontal: AppSpacing.lg,
                             vertical: AppSpacing.md,
@@ -131,7 +131,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
                     margin:
                         const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: Theme.of(context).cardColor.withOpacity(0.3),
                       borderRadius: BorderRadius.circular(AppRadius.xl),
                     ),
                     child: TabBar(
@@ -184,42 +184,114 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Description
+            // Introduction
             Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque congue lorem, vel tincidunt tortor placerat a. Proin ac diam quam. Aenean in sagittis magna, ut feugiat diam. Fusce a scelerisque neque, sed accumsan metus.',
-              style: AppTextStyles.bodyMedium,
+              'Selamat Datang di Tryout Apps!',
+              style: AppTextStyles.heading2.copyWith(color: AppColors.primary),
             ),
             const SizedBox(height: AppSpacing.md),
             Text(
-              'Nunc auctor tortor in dolor luctus, quis euismod urna tincidunt. Aenean arcu metus, bibendum at rhoncus et, volutpat ut lacus. Morbi pellentesque suscipit lorem, et maximus ligula fermentum ac. Fusce enim mi neque euctor, a ultrices ac placerat. Mauris ut lacinia justo, sed suscipit tortor. Nam egestas nulla posuere nunc tincidunt porta.',
+              'Aplikasi Tryout Apps adalah platform pembelajaran interaktif yang dirancang untuk membantu Anda mempersiapkan diri menghadapi berbagai ujian dan tes dengan sistem tryout yang komprehensif.',
               style: AppTextStyles.bodyMedium,
+            ),
+            const SizedBox(height: AppSpacing.lg),
+
+            // Fitur Utama
+            Text(
+              'Fitur Utama',
+              style: AppTextStyles.heading3.copyWith(color: AppColors.primary),
+            ),
+            const SizedBox(height: AppSpacing.md),
+
+            _buildFeatureItem(
+              icon: Icons.quiz,
+              title: 'Bank Soal Lengkap',
+              description: 'Ribuan soal dari berbagai kategori: Literasi Bahasa Indonesia, Literasi Bahasa Inggris, Penalaran Matematika, dan lainnya.',
+            ),
+
+            _buildFeatureItem(
+              icon: Icons.timer,
+              title: 'Timer Real-time',
+              description: 'Simulasi ujian dengan batas waktu yang sesuai dengan tes sesungguhnya untuk mengasah manajemen waktu Anda.',
+            ),
+
+            _buildFeatureItem(
+              icon: Icons.analytics,
+              title: 'Analisis Hasil',
+              description: 'Lihat skor, pembahasan soal, dan analisis performa untuk mengetahui kekuatan dan area yang perlu ditingkatkan.',
+            ),
+
+            _buildFeatureItem(
+              icon: Icons.leaderboard,
+              title: 'Ranking & Kompetisi',
+              description: 'Bandingkan hasil Anda dengan peserta lain dan lihat posisi ranking Anda secara real-time.',
             ),
 
             const SizedBox(height: AppSpacing.xl),
 
-            // Terms & Conditions
+            // Cara Penggunaan
             Text(
-              'Terms & Conditions',
+              'Cara Menggunakan Aplikasi',
+              style: AppTextStyles.heading3.copyWith(color: AppColors.primary),
+            ),
+            const SizedBox(height: AppSpacing.md),
+
+            _buildStepItem(
+              number: 1,
+              title: 'Registrasi Akun',
+              description: 'Daftar menggunakan email dan buat password yang kuat. Verifikasi email Anda untuk mengaktifkan akun.',
+            ),
+
+            _buildStepItem(
+              number: 2,
+              title: 'Pilih Paket Tryout',
+              description: 'Browse kategori tryout yang tersedia dan pilih sesuai kebutuhan Anda. Ada paket gratis dan premium.',
+            ),
+
+            _buildStepItem(
+              number: 3,
+              title: 'Mulai Mengerjakan',
+              description: 'Klik "Mulai Tryout", baca instruksi dengan teliti, dan kerjakan soal sesuai waktu yang ditentukan.',
+            ),
+
+            _buildStepItem(
+              number: 4,
+              title: 'Submit & Review',
+              description: 'Setelah selesai, submit jawaban Anda. Lihat hasil, pembahasan, dan analisis performa untuk belajar dari kesalahan.',
+            ),
+
+            const SizedBox(height: AppSpacing.xl),
+
+            // Syarat & Ketentuan
+            Text(
+              'Syarat & Ketentuan Penggunaan',
               style: AppTextStyles.heading3.copyWith(color: AppColors.primary),
             ),
             const SizedBox(height: AppSpacing.md),
 
             _buildTermItem(
               number: 1,
-              text:
-                  'Ut lacinia justo sit amet lorem sodales accumsan. Proin malesuada eleifend fermentum. Donec condimentum, nunc at rhoncus faucibus, ex nisi laoreet ipsum, eu pharetra eros est vitae orci. Morbi quis rhoncus mi. Nullam lacinia ornare accumsan. Duis laoreet, ex eget rutrum pharetra, lectus nisl posuere risus, vel facilisis nisl tellus ac turpis.',
+              text: 'Pengguna wajib memberikan informasi yang valid dan akurat saat registrasi. Satu akun hanya untuk satu pengguna dan tidak boleh dibagikan kepada orang lain.',
             ),
 
             _buildTermItem(
               number: 2,
-              text:
-                  'Ut lacinia justo sit amet lorem sodales accumsan. Proin malesuada eleifend fermentum. Donec condimentum, nunc at rhoncus faucibus, ex nisi laoreet ipsum, eu pharetra eros est vitae orci. Morbi quis rhoncus mi. Nullam lacinia ornare accumsan. Duis laoreet, ex eget rutrum pharetra, lectus nisl posuere risus, vel facilisis nisl tellus.',
+              text: 'Dilarang melakukan kecurangan dalam bentuk apapun selama mengerjakan tryout, termasuk menggunakan bantuan pihak lain atau perangkat tidak sah. Pelanggaran akan mengakibatkan diskualifikasi.',
             ),
 
             _buildTermItem(
               number: 3,
-              text:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque congue lorem, vel tincidunt tortor placerat a.',
+              text: 'Konten soal dan materi pembelajaran adalah hak cipta kami. Dilarang menyalin, mendistribusikan, atau menggunakan untuk kepentingan komersial tanpa izin tertulis.',
+            ),
+
+            _buildTermItem(
+              number: 4,
+              text: 'Kami berhak melakukan perubahan pada aplikasi, termasuk fitur, harga paket, dan kebijakan tanpa pemberitahuan sebelumnya. Pengguna akan diinformasikan melalui aplikasi atau email.',
+            ),
+
+            _buildTermItem(
+              number: 5,
+              text: 'Pengguna bertanggung jawab menjaga keamanan akun dan password. Kami tidak bertanggung jawab atas kerugian akibat kelalaian pengguna dalam menjaga kerahasiaan akun.',
             ),
 
             const SizedBox(height: AppSpacing.xl),
@@ -238,16 +310,67 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
           children: [
             const SizedBox(height: AppSpacing.md),
 
+            // Info Section
+            Container(
+              padding: const EdgeInsets.all(AppSpacing.lg),
+              decoration: BoxDecoration(
+                color: AppColors.primary.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(AppRadius.lg),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.info_outline, color: AppColors.primary),
+                      const SizedBox(width: AppSpacing.sm),
+                      Text(
+                        'Jam Operasional',
+                        style: AppTextStyles.bodyMedium.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: AppSpacing.sm),
+                  Text(
+                    'Senin - Jumat: 08:00 - 17:00 WIB\nSabtu - Minggu: 09:00 - 15:00 WIB',
+                    style: AppTextStyles.bodySmall,
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: AppSpacing.lg),
+
             _buildContactCard(
               icon: Icons.headset_mic_rounded,
               title: 'Customer Service',
-              subtitle: 'Hubungi customer service kami',
+              subtitle: 'Hubungi CS kami untuk bantuan',
+              detail: '+62 812-3456-7890',
               color: AppColors.primary,
               onTap: () {
-                // TODO: Open customer service
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                      content: Text('Membuka Customer Service...')),
+                    content: Text('Menghubungi Customer Service...'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              },
+            ),
+
+            _buildContactCard(
+              icon: Icons.email_rounded,
+              title: 'Email Support',
+              subtitle: 'Kirim pertanyaan via email',
+              detail: 'support@tryoutapps.com',
+              color: AppColors.accent,
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Membuka Email Client...'),
+                    duration: Duration(seconds: 2),
+                  ),
                 );
               },
             ),
@@ -256,24 +379,46 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
               icon: Icons.language_rounded,
               title: 'Website',
               subtitle: 'Kunjungi website resmi kami',
+              detail: 'www.tryoutapps.com',
               color: AppColors.info,
               onTap: () {
-                // TODO: Open website
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Membuka Website...')),
+                  const SnackBar(
+                    content: Text('Membuka Website...'),
+                    duration: Duration(seconds: 2),
+                  ),
                 );
               },
             ),
 
             _buildContactCard(
               icon: Icons.chat_bubble_rounded,
-              title: 'Whatsapp',
+              title: 'WhatsApp',
               subtitle: 'Chat langsung via WhatsApp',
+              detail: '+62 812-3456-7890',
               color: AppColors.success,
               onTap: () {
-                // TODO: Open WhatsApp
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Membuka WhatsApp...')),
+                  const SnackBar(
+                    content: Text('Membuka WhatsApp...'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              },
+            ),
+
+            _buildContactCard(
+              icon: Icons.location_on_rounded,
+              title: 'Kantor Kami',
+              subtitle: 'Kunjungi kantor kami',
+              detail: 'Jl. Contoh No. 123, Jakarta Selatan',
+              color: AppColors.error,
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Membuka Google Maps...'),
+                    duration: Duration(seconds: 2),
+                  ),
                 );
               },
             ),
@@ -308,10 +453,121 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
     );
   }
 
+  Widget _buildFeatureItem({
+    required IconData icon,
+    required String title,
+    required String description,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: AppSpacing.md),
+      padding: const EdgeInsets.all(AppSpacing.md),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        borderRadius: BorderRadius.circular(AppRadius.md),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 5,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(AppSpacing.sm),
+            decoration: BoxDecoration(
+              color: AppColors.primary.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(AppRadius.sm),
+            ),
+            child: Icon(icon, color: AppColors.primary, size: 24),
+          ),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: AppTextStyles.bodyMedium.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.xs),
+                Text(
+                  description,
+                  style: AppTextStyles.bodySmall.copyWith(
+                    color: AppColors.textSecondary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStepItem({
+    required int number,
+    required String title,
+    required String description,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: AppSpacing.md),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                '$number',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: AppTextStyles.bodyMedium.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.xs),
+                Text(
+                  description,
+                  style: AppTextStyles.bodySmall.copyWith(
+                    color: AppColors.textSecondary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildContactCard({
     required IconData icon,
     required String title,
     required String subtitle,
+    required String detail,
     required Color color,
     required VoidCallback onTap,
   }) {
@@ -353,6 +609,14 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
                     Text(
                       subtitle,
                       style: AppTextStyles.bodySmall,
+                    ),
+                    const SizedBox(height: AppSpacing.xs),
+                    Text(
+                      detail,
+                      style: AppTextStyles.bodySmall.copyWith(
+                        color: color,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 ),
